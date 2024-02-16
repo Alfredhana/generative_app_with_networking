@@ -12,8 +12,10 @@ function App() {
   const [animationKey, setAnimationKey] = useState(0);
   
   useEffect(() => {
-    console.log(`ws://${window.location.host}`);
-    const ws = new WebSocket(`ws://${window.location.host}`);
+    const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+    const wsURL = `${protocol}${window.location.host}`;
+    console.log(wsURL);
+    const ws = new WebSocket(wsURL);
 
     ws.onmessage = function (event) {
       if (event.data === 'reload') {
