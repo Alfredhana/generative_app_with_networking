@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export const Animation1 = (p5) => {
+  
   let font;
   let joinedText;
   const excludedWords = ['the', 'is', 'of', 'a', 'they', 'that', 'an', 'to', 'in', 'his', 'are', 'may', 'and', 'by', 's', 'it', 'sol', 'its', "than", "cannot", "but", "who", "goes", "rather", "others", "for", "as", "too", "there"];
   const DRAW_BALLS = true;
   const LERP_AMOUNT = 0.0000001;
-  let balls = [];
+  let balls = []; 
 
   p5.preload = () => {
     font = p5.loadFont('FreeSans.otf');
